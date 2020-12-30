@@ -56,8 +56,8 @@ class ServiceFactory
 
 		$tableOfContents = new TableOfContents($mpdf, $sizeConverter);
 
-		$cache = new Cache($config['tempDir']);
-		$fontCache = new FontCache(new Cache($config['tempDir'] . '/ttfontdata'));
+		$cache = new Cache($config['tempDir'] . '/mpdf', $config['cacheCleanupInterval']);
+		$fontCache = new FontCache(new Cache($config['tempDir'] . '/mpdf/ttfontdata', $config['cacheCleanupInterval']));
 
 		$fontFileFinder = new FontFileFinder($config['fontDir']);
 
